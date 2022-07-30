@@ -1,6 +1,7 @@
 package org.github.cocodx.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ public class User {
     @TableId(value = "uid",type = IdType.AUTO)//要使AUTO生效，数据库也要主键自增设置
     private Long id;
 
+    @TableField(value = "user_name")
     private String name;
     private Integer age;
     private String email;
