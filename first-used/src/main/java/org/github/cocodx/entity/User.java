@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 //@TableName("t_user")
 public class User {
     //指定这个属性所对应的字段作为主键
-    @TableId
-    private Long uid;
+    @TableId(value = "uid")
+    private Long id;
 
     private String name;
     private Integer age;

@@ -34,7 +34,7 @@ public class MybatisPlusTest {
         user.setAge(100);
         int insert = userMapper.insert(user);
         System.out.println(insert);
-        System.out.println("id:"+user.getUid());
+        System.out.println("id:"+user.getId());
     }
 
     @Test
@@ -59,7 +59,7 @@ public class MybatisPlusTest {
     @Test
     public void testUpdate(){
         User user = new User();
-        user.setUid(1553349349637918721L);
+        user.setId(1553349349637918721L);
         user.setName("大军儿");
         user.setAge(24);
         user.setEmail("dajuner@gmail.com");
