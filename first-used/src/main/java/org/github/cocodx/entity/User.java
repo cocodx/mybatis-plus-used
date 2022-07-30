@@ -1,5 +1,6 @@
 package org.github.cocodx.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,8 +15,10 @@ import lombok.NoArgsConstructor;
 //设置实体类所对应的表名
 //@TableName("t_user")
 public class User {
+    //指定这个属性所对应的字段作为主键
+    @TableId
+    private Long uid;
 
-    private Long id;
     private String name;
     private Integer age;
     private String email;

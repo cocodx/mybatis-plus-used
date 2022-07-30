@@ -29,12 +29,12 @@ public class MybatisPlusTest {
     @Test
     public void testInsert(){
         User user = new User();
-        user.setName("大军");
+        user.setName("大军1111");
         user.setEmail("dajun@gmail.com");
         user.setAge(100);
         int insert = userMapper.insert(user);
         System.out.println(insert);
-        System.out.println("id:"+user.getId());
+        System.out.println("id:"+user.getUid());
     }
 
     @Test
@@ -59,7 +59,7 @@ public class MybatisPlusTest {
     @Test
     public void testUpdate(){
         User user = new User();
-        user.setId(1553349349637918721L);
+        user.setUid(1553349349637918721L);
         user.setName("大军儿");
         user.setAge(24);
         user.setEmail("dajuner@gmail.com");
