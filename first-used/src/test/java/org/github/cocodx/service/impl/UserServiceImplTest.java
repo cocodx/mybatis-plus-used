@@ -14,7 +14,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Transactional
-@Rollback(value = true)
+@Rollback(value = false)
 @SpringBootTest
 public class UserServiceImplTest {
 

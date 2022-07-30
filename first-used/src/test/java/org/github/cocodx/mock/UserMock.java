@@ -16,7 +16,7 @@ public class UserMock {
 
     public static User mockEntity(){
         User user = new User();
-        user.setName(PersonInfoSource.getInstance().randomNickName(8));
+        user.setName(PersonInfoSource.getInstance().randomChineseName());
         user.setEmail(InternetSource.getInstance().randomEmail(10, "gmail.com"));
         user.setAge(NumberSource.getInstance().randomInt(1, 150));
         return user;

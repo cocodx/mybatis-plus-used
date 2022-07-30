@@ -1,5 +1,6 @@
 package org.github.cocodx.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 //@TableName("t_user")
 public class User {
     //指定这个属性所对应的字段作为主键
-    @TableId(value = "uid")
+    @TableId(value = "uid",type = IdType.AUTO)//要使AUTO生效，数据库也要主键自增设置
     private Long id;
 
     private String name;

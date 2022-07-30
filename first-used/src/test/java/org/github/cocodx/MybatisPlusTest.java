@@ -2,6 +2,7 @@ package org.github.cocodx;
 
 import org.github.cocodx.dao.UserMapper;
 import org.github.cocodx.entity.User;
+import org.github.cocodx.mock.UserMock;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,10 +29,7 @@ public class MybatisPlusTest {
 
     @Test
     public void testInsert(){
-        User user = new User();
-        user.setName("大军1111");
-        user.setEmail("dajun@gmail.com");
-        user.setAge(100);
+        User user = UserMock.mockEntity();
         int insert = userMapper.insert(user);
         System.out.println(insert);
         System.out.println("id:"+user.getId());
