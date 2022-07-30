@@ -6,10 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author amazfit
@@ -68,5 +65,26 @@ public class MybatisPlusTest {
         user.setEmail("dajuner@gmail.com");
         int i = userMapper.updateById(user);
         System.out.println("result:"+i);
+    }
+
+    @Test
+    public void testSelect(){
+        //通过id查询用户信息
+/*        User user = userMapper.selectById(1L);
+        System.out.println(user);*/
+
+        //根据多个id实现批量查询
+        /*List<Long> longs = Arrays.asList(1496533042804662275L, 1553349349637918721L);
+        List<User> users = userMapper.selectBatchIds(longs);
+        users.forEach(System.out::println);*/
+
+/*        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("name","jack");
+        hashMap.put("age",20);
+        List<User> users = userMapper.selectByMap(hashMap);
+        users.forEach(System.out::println);*/
+
+        List<User> users = userMapper.selectList(null);
+        users.forEach(System.out::println);
     }
 }
