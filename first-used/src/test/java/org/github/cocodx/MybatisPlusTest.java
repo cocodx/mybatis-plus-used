@@ -49,9 +49,9 @@ public class MybatisPlusTest {
         System.out.println("result:"+i);*/
 
         //通过多个id实现批量删除
-        /*List<Long> longs = Arrays.asList(1496533042804662273L, 1496533042804662274L, 3L);
+        List<Long> longs = Arrays.asList(1L, 10L, 53L,59L);
         int i = userMapper.deleteBatchIds(longs);
-        System.out.println("result:"+i);*/
+        System.out.println("result:"+i);
     }
 
     @Test
