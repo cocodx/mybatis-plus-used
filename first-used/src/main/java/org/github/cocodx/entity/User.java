@@ -1,5 +1,6 @@
 package org.github.cocodx.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,6 +11,8 @@ import lombok.NoArgsConstructor;
  * @date 2022-07-30 下午6:48
  **/
 @Data
+//设置实体类所对应的表名
+//@TableName("t_user")
 public class User {
 
     private Long id;
