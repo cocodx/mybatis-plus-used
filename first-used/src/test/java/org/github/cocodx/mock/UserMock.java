@@ -22,6 +22,12 @@ public class UserMock {
         return user;
     }
 
+    public static User idMockEntity(){
+        User user = mockEntity();
+        user.setId(NumberSource.getInstance().randomLong(1, 101));
+        return user;
+    }
+
     public static List<User> mockList(int count){
         ArrayList<User> users = new ArrayList<>(count);
         for (int i = 0; i < count; i++) {

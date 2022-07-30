@@ -16,6 +16,8 @@ import lombok.NoArgsConstructor;
 //设置实体类所对应的表名
 //@TableName("t_user")
 public class User {
+//    AUTO是自增，数据库主键也要设置自增
+//    ASSIGN_ID是雪花数，默认就是雪花数
     //指定这个属性所对应的字段作为主键
     @TableId(value = "uid",type = IdType.AUTO)//要使AUTO生效，数据库也要主键自增设置
     private Long id;

@@ -29,7 +29,7 @@ public class MybatisPlusTest {
 
     @Test
     public void testInsert(){
-        User user = UserMock.mockEntity();
+        User user = UserMock.idMockEntity();
         int insert = userMapper.insert(user);
         System.out.println(insert);
         System.out.println("id:"+user.getId());
