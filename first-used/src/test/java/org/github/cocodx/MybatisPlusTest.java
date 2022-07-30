@@ -87,4 +87,10 @@ public class MybatisPlusTest {
         List<User> users = userMapper.selectList(null);
         users.forEach(System.out::println);
     }
+
+    @Test
+    public void testSelect1(){
+        Map<String, Object> map = userMapper.selectMapById(1L);
+        System.out.println(map);
+    }
 }
