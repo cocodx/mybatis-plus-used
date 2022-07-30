@@ -17,6 +17,17 @@ mybatis-plus使用
 * 逻辑删除：假删除，将对应数据中代表是否被删除字段的状态修改为被删除状态，之后在数据库中仍旧能看到此条数据
 * 使用场景：数据恢复
 
+默认0是未删除，1已删除
 
+##### 条件构造器
 
+* Wrapper：条件构造抽象类，最顶端父类
     
+* AbstractWrapper：用于查询条件封装，生成sql的where条件
+* QueryWrapper：查询条件封装
+* UpdateWrapper：Update条件封装
+* AbstractLambdaWrapper：使用Lambda语法
+* LambdaQueryWrapper：用于Lambda语法使用的查询Wrapper
+* LambdaUpdateWrapper：Lambda更新封装Wrapper
+
+
