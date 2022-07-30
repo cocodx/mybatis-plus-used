@@ -58,4 +58,15 @@ public class MybatisPlusTest {
         int i = userMapper.deleteBatchIds(longs);
         System.out.println("result:"+i);*/
     }
+
+    @Test
+    public void testUpdate(){
+        User user = new User();
+        user.setId(1553349349637918721L);
+        user.setName("大军儿");
+        user.setAge(24);
+        user.setEmail("dajuner@gmail.com");
+        int i = userMapper.updateById(user);
+        System.out.println("result:"+i);
+    }
 }
