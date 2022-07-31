@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2022-07-31 下午2:09
  **/
 @Rollback(value = false)
-@Transactional
 @SpringBootTest
 public class MybatisPlusPluginsTest {
 
