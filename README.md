@@ -87,6 +87,10 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 如果是悲观锁，小李取出数据后，小王只能等小李操作完之后，才能对价格进行操作，也会保证最终的价格。
 
+#### mybatis-plus-datasource
 
+模拟多数据源环境
+
+1. 新建数据库mybatis-plus-1，将first-used使用的t_product,t_user表同样建在新数据库中。
 
 
