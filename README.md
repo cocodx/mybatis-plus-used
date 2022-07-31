@@ -30,4 +30,16 @@ mybatis-plus使用
 * LambdaQueryWrapper：用于Lambda语法使用的查询Wrapper
 * LambdaUpdateWrapper：Lambda更新封装Wrapper
 
+##### 乐观锁和悲观锁
+
+> 通过version来实现
+
+如果是乐观锁，小王保存价格之前，会检索价格是否被人修改了，如果被修改过，则重新取出的被修改后的价格，150元，这样会将120元存入数据库
+
+> 关闭自动提交，select ... for update 行锁
+
+如果是悲观锁，小李取出数据后，小王只能等小李操作完之后，才能对价格进行操作，也会保证最终的价格。
+
+
+
 
