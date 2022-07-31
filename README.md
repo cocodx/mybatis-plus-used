@@ -81,6 +81,8 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 取出记录时，获取当前version；更新时，version+1，如果where语句中的version版本不对，则更新失败
 
+**添加乐观锁插件，在类中添加@Version标注乐观锁字段**
+
 > 关闭自动提交，select ... for update 行锁
 
 如果是悲观锁，小李取出数据后，小王只能等小李操作完之后，才能对价格进行操作，也会保证最终的价格。
