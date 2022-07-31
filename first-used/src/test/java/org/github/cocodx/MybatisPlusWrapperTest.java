@@ -2,6 +2,7 @@ package org.github.cocodx;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import org.apache.commons.lang3.StringUtils;
 import org.github.cocodx.dao.UserMapper;
 import org.github.cocodx.entity.User;
 import org.junit.jupiter.api.Test;
@@ -122,5 +123,26 @@ public class MybatisPlusWrapperTest {
         updateWrapper.set("user_name", "xiaohei").set("email", "hei@gmail.com");
         int update = userMapper.update(null, updateWrapper);
         System.out.println("result:"+update);
+    }
+
+    @Test
+    public void test09(){
+        //SELECT uid AS id,user_name AS name,age,email,is_deleted FROM t_user WHERE is_deleted=0 AND (age >= ? AND age <= ?)
+        String userName="h";
+        Integer ageBegin = null;
+        Integer ageEnd = 30;
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        if (!StringUtils.isBlank(userName)){
+            wrapper.like("user_name",userName);
+        }
+        if (ageBegin!=null){
+            //大于等于 >=
+            wrapper.ge("age",ageBegin);
+        }
+        if (ageEnd!=null){
+            wrapper.le("age",ageEnd);
+        }
+        List<User> users = userMapper.selectList(wrapper);
+        users.forEach(System.out::println);
     }
 }
