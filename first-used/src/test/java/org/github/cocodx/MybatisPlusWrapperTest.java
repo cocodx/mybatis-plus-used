@@ -54,4 +54,18 @@ public class MybatisPlusWrapperTest {
         int delete = userMapper.delete(objectQueryWrapper);
         System.out.println("result:"+delete);
     }
+
+    @Test
+    public void test03Update(){
+        //UPDATE t_user SET user_name=?, email=? WHERE is_deleted=0 AND (age > ? AND user_name LIKE ? OR email IS NULL)
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.gt("age", 20)
+                .like("user_name", "a")
+                .or()
+                .isNull("email");
+        User user = new User();
+        user.setName("xiaoming");
+        user.setEmail("ming@gmail.com");
+        userMapper.update(user,wrapper);
+    }
 }
