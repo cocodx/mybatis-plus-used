@@ -32,15 +32,15 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user`  (
-                           `uid` bigint(20) NOT NULL AUTO_INCREMENT,
-                           `user_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-                           `age` int(11) NULL DEFAULT NULL,
-                           `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-                           `is_deleted` tinyint(1) UNSIGNED ZEROFILL NULL DEFAULT 0,
-                           `create_time` datetime(0) NULL DEFAULT NULL,
-                           `update_time` datetime(0) NULL DEFAULT NULL,
-                           `version` int(255) NULL DEFAULT NULL,
-                           PRIMARY KEY (`uid`) USING BTREE
+`uid` bigint(20) NOT NULL AUTO_INCREMENT,
+`user_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+`age` int(11) NULL DEFAULT NULL,
+`email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+`is_deleted` tinyint(1) UNSIGNED ZEROFILL NULL DEFAULT 0,
+`create_time` datetime(0) NULL DEFAULT NULL,
+`update_time` datetime(0) NULL DEFAULT NULL,
+`version` int(255) NULL DEFAULT NULL,
+PRIMARY KEY (`uid`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1553449097266995218 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
