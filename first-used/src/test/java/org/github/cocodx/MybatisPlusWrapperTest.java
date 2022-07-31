@@ -2,6 +2,7 @@ package org.github.cocodx;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.apache.commons.lang3.StringUtils;
 import org.github.cocodx.dao.UserMapper;
@@ -174,5 +175,18 @@ public class MybatisPlusWrapperTest {
                 .le(ageEnd!=null,User::getAge,ageEnd);
         List<User> users = userMapper.selectList(queryWrapper);
         users.forEach(System.out::println);
+    }
+
+    @Test
+    public void test12(){
+        //UPDATE t_user SET user_name=?,email=? WHERE is_deleted=0 AND (user_name LIKE ? AND (age > ? OR email IS NULL))
+        LambdaUpdateWrapper<User> updateWrapper = new LambdaUpdateWrapper<>();
+        updateWrapper.like(User::getName,"h")
+                .and(i->{
+                    i.gt(User::getAge,20).or().isNull(User::getEmail);
+                });
+        updateWrapper.set(User::getName,"小黑").set(User::getEmail,"860721890@qq.com");
+        int update = userMapper.update(null,updateWrapper);
+        System.out.println("result:"+update);
     }
 }
