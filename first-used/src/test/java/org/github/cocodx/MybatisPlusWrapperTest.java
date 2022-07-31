@@ -1,5 +1,6 @@
 package org.github.cocodx;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.apache.commons.lang3.StringUtils;
@@ -157,6 +158,21 @@ public class MybatisPlusWrapperTest {
                 .ge(ageBegin!=null,"age",ageBegin)
                 .le(ageEnd!=null,"age",ageEnd);
         List<User> users = userMapper.selectList(wrapper);
+        users.forEach(System.out::println);
+    }
+
+    @Test
+    public void test11(){
+        //SELECT uid AS id,user_name AS name,age,email,is_deleted FROM t_user WHERE is_deleted=0 AND (user_name LIKE ? AND age <= ?)
+        String userName="h";
+        Integer ageBegin = null;
+        Integer ageEnd = 30;
+
+        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.like(StringUtils.isNotBlank(userName), User::getName,userName)
+                .ge(ageBegin!=null,User::getAge,ageBegin)
+                .le(ageEnd!=null,User::getAge,ageEnd);
+        List<User> users = userMapper.selectList(queryWrapper);
         users.forEach(System.out::println);
     }
 }
