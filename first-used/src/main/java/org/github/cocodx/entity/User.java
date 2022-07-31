@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.github.cocodx.enums.SexEnum;
 
 /**
  * @author amazfit
@@ -24,6 +25,7 @@ public class User {
     private String name;
     private Integer age;
     private String email;
+    private SexEnum sex;
 
     @TableLogic
     @TableField(value = "is_deleted")

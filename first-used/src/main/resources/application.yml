@@ -17,3 +17,5 @@ mybatis-plus:
       id-type: auto
   #配置类型别名所对应的包
   type-aliases-package: org.github.cocodx.entity
+  # 扫描通用枚举的包
+  type-enums-package: org.github.cocodx.enums
