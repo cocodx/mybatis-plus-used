@@ -11,8 +11,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  **/
 @EnableTransactionManagement
 @SpringBootApplication
-//用于扫描Mapper接口所在包，就不需要Mapper注解
-@MapperScan("org.github.cocodx.dao")
 public class MybatisPlusApplication {
 
     public static void main(String[] args) {
