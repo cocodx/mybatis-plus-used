@@ -31,7 +31,7 @@ public class User implements Serializable {
 
     private String email;
 
-    private Boolean isDeleted;
+    private Integer isDeleted;
 
     private LocalDateTime createTime;
 
