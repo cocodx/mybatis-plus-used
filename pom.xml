@@ -10,6 +10,7 @@
     <modules>
         <module>first-used</module>
         <module>mybatis-plus-datasource</module>
+        <module>mybatisX</module>
     </modules>
     <packaging>pom</packaging>
 

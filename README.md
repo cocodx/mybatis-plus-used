@@ -94,5 +94,18 @@ SET FOREIGN_KEY_CHECKS = 1;
 模拟多数据源环境
 
 1. 新建数据库mybatis-plus-1，将first-used使用的t_product,t_user表同样建在新数据库中。
+2. 使用@DS，标注在serviceImpl的类上，使用master库，还是slave-1库数据源
+
+#### mybatisX
+
+使用MybatisX插件，自动生成代码
+
+#### MybatisX IDEA插件使用
+
+快速对应mapper接口和mapper.xml
+
+##### MybatisX代码快速生成
+
+
 
 
