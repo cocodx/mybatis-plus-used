@@ -1,6 +1,7 @@
 package org.github.cocodx;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.github.cocodx.dao.UserMapper;
 import org.github.cocodx.entity.User;
 import org.junit.jupiter.api.Test;
@@ -107,5 +108,19 @@ public class MybatisPlusWrapperTest {
         wrapper.inSql("uid","select uid from t_user where uid<=100");
         List<User> users = userMapper.selectList(wrapper);
         users.forEach(System.out::println);
+    }
+
+    @Test
+    public void test08(){
+        //UPDATE t_user SET user_name=?,email=? WHERE is_deleted=0 AND (user_name LIKE ? AND (age > ? OR email IS NULL))
+        //将用户中包含有a，并且（年龄大于20或者email为null）的用户信息修改
+        UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.like("user_name", "红").and(item -> {
+            item.gt("age", 20).or().isNull("email");
+        });
+        //set设置要修改的字段
+        updateWrapper.set("user_name", "xiaohei").set("email", "hei@gmail.com");
+        int update = userMapper.update(null, updateWrapper);
+        System.out.println("result:"+update);
     }
 }
