@@ -32,4 +32,15 @@ public class MybatisPlusWrapperTest {
         List<User> users = userMapper.selectList(userQueryWrapper);
         users.forEach(System.out::println);
     }
+
+    @Test
+    public void test02(){
+        //SELECT uid AS id,user_name AS name,age,email,is_deleted FROM t_user WHERE is_deleted=0 ORDER BY age ASC,uid ASC
+        //查询用户信息，按照年龄的降序排序，若年龄相同，则按照id升序排序
+        QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
+        userQueryWrapper.orderByAsc("age")
+                .orderByAsc("uid");
+        List<User> users = userMapper.selectList(userQueryWrapper);
+        users.forEach(System.out::println);
+    }
 }
