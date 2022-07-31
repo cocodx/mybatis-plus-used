@@ -106,6 +106,16 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 ##### MybatisX代码快速生成
 
+1. IDEA右侧配置Mysql的数据库连接
+1. 鼠标选中目标表，右键点MybatisX自动生成选项
+
+![image](https://user-images.githubusercontent.com/97614802/182025600-0f9b930b-0990-4939-ba46-571c22f62b4d.png)
+
+![image](https://user-images.githubusercontent.com/97614802/182025616-25d6e399-b973-42c9-a177-8253c1b5276b.png)
+
+![image](https://user-images.githubusercontent.com/97614802/182025814-33badbec-3275-401c-b700-c0a674c39eb3.png)
+
+![image](https://user-images.githubusercontent.com/97614802/182025843-0ac4c23a-941c-4078-a9b2-e801170c3870.png)
 
 
 
