@@ -1,7 +1,9 @@
 package org.github.cocodx;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.github.cocodx.dao.ProductMapper;
 import org.github.cocodx.dao.UserMapper;
+import org.github.cocodx.entity.Product;
 import org.github.cocodx.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class MybatisPlusPluginsTest {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private ProductMapper productMapper;
 
     @Test
     public void selectPage(){
@@ -42,5 +47,24 @@ public class MybatisPlusPluginsTest {
         System.out.println(userPage.getTotal());//总记录数
         System.out.println(userPage.hasNext());//有没有上一页
         System.out.println(userPage.hasPrevious());//有没有下一页
+    }
+
+    @Test
+    public void testProduct01(){
+        //小李查询商品价格
+        Product productLi = productMapper.selectById(1L);
+        System.out.println("小李查询的商品价格："+productLi.getPrice());
+        //小王查询商品价格
+        Product productWang = productMapper.selectById(1L);
+        System.out.println("小王查询的商品价格："+productWang.getPrice());
+        //小李将商品价格+5000
+        productLi.setPrice(productLi.getPrice()+5000);
+        productMapper.updateById(productLi);
+        //小王将商品价格-3000
+        productWang.setPrice(productWang.getPrice()-3000);
+        productMapper.updateById(productWang);
+
+        Product productBoss = productMapper.selectById(1L);
+        System.out.println("boss查询的商品价格："+productBoss.getPrice());
     }
 }
