@@ -31,7 +31,16 @@ public class MybatisPlusPluginsTest {
         System.out.println(userPage.getTotal());//总记录数
         System.out.println(userPage.hasNext());//有没有上一页
         System.out.println(userPage.hasPrevious());//有没有下一页
+    }
 
-
+    @Test
+    public void testPageVo(){
+        Page<User> userPage = new Page<>(3,3);
+        userMapper.selectPageVo(userPage,1);
+        System.out.println("records:"+userPage.getRecords());//查询的记录数
+        System.out.println(userPage.getPages());//总页数
+        System.out.println(userPage.getTotal());//总记录数
+        System.out.println(userPage.hasNext());//有没有上一页
+        System.out.println(userPage.hasPrevious());//有没有下一页
     }
 }

@@ -3,9 +3,20 @@
 
 <mapper namespace="org.github.cocodx.dao.UserMapper">
 
+<!-- type就是对应的实体类，在yml加了别名之后，这里只用写类名【不区分大小写】-->
+    <resultMap id="userMap" type="user">
+        <result column="uid" property="id"/>
+        <result column="user_name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="email" property="email"/>
+        <result column="is_deleted" property="isDeleted"/>
+    </resultMap>
 
     <select id="selectMapById" resultType="java.util.Map">
-        select id,name,age,email from user where id=#{id}
+        select id,name,age,email from t_user where id=#{id}
+    </select>
+    <select id="selectPageVo" resultMap="userMap">
+        select * from t_user where age > #{age}
     </select>
 
 </mapper>

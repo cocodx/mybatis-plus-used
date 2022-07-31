@@ -1,6 +1,7 @@
 package org.github.cocodx.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 import org.github.cocodx.entity.User;
 import org.springframework.stereotype.Repository;
@@ -23,4 +24,12 @@ public interface UserMapper extends BaseMapper<User> {
      * @return
      */
     Map<String,Object> selectMapById(@Param("id") Long id);
+
+    /**
+     * 通过年龄查询用户信息并且分页
+     * @param page Mybatis-plus提供的分页对象，必须位于第一个位置
+     * @param age
+     * @return
+     */
+    Page<User> selectPageVo(@Param("page") Page<User> page, @Param("age") Integer age);
 }
