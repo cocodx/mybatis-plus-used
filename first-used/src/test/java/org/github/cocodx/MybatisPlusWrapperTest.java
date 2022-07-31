@@ -10,6 +10,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author amazfit
@@ -86,5 +87,15 @@ public class MybatisPlusWrapperTest {
         user.setAge(25);
         user.setEmail("test@gmail.com");
         userMapper.update(user,userQueryWrapper);
+    }
+
+    @Test
+    public void test06(){
+        //SELECT user_name,age,email FROM t_user WHERE is_deleted=0
+        //查询用户的用户名，年龄，邮箱
+        QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
+        userQueryWrapper.select("user_name","age","email");
+        List<Map<String, Object>> maps = userMapper.selectMaps(userQueryWrapper);
+        maps.forEach(System.out::println);
     }
 }
